@@ -1,7 +1,8 @@
 const request = require('request');
 
 function getGeoURL(input) {
-	const token = 'Your MAPBOX token here';
+	const token =
+		'Your MAPBOX token here';
 	const geoCodeURL =
 		'https://api.mapbox.com/geocoding/v5/mapbox.places/' +
 		encodeURIComponent(input) +
@@ -13,7 +14,7 @@ function getGeoURL(input) {
 
 const getCoordinates = (userInput, callback) => {
 	const geoCodeURL = getGeoURL(userInput);
-	request({ url: geoCodeURL, json: true }, (error, { body }) => {
+	request({ url: geoCodeURL, json: true }, (error, { body } = {}) => {
 		if (error) {
 			callback('Unable to connect to geo Code service', undefined);
 		} else if (body.message) {

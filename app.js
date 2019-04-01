@@ -12,6 +12,7 @@ rl.question('Enter the name of the place- ', input => {
 	geoCode.getCoordinates(input, (geoCodeError, geoCodeResponse) => {
 		if (geoCodeError) {
 			console.log(chalk.red.inverse(geoCodeError));
+			process.exit();
 		}
 		console.log(
 			chalk.blue.inverse('Longitude=') + chalk.yellow(geoCodeResponse.longitude)
@@ -28,6 +29,7 @@ rl.question('Enter the name of the place- ', input => {
 			(forecastError, { summary, temperature }) => {
 				if (forecastError) {
 					console.log(chalk.red.inverse(forecastError));
+					process.exit();
 				}
 				console.log(
 					chalk.blue.inverse('Weather Forecast:-') +
