@@ -26,7 +26,7 @@ rl.question('Enter the name of the place- ', input => {
 		forecast.getForecast(
 			geoCodeResponse,
 			//using JS destructured syntax for forecastResponse
-			(forecastError, { summary, temperature }) => {
+			(forecastError, { summary, temperature } = {}) => {
 				if (forecastError) {
 					console.log(chalk.red.inverse(forecastError));
 					process.exit();

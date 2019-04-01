@@ -1,7 +1,7 @@
 const request = require('request');
 
 const getForecast = (geoCodeResponse, callback) => {
-	const token = 'Your DarkSky token here';
+	const token = '53511e9a3600bf44737a6b00060cd77b';
 	const url =
 		'https://api.darksky.net/forecast/' +
 		token +
@@ -12,7 +12,7 @@ const getForecast = (geoCodeResponse, callback) => {
 		'?units=si';
 
 	//using JS shorthand syntax for url
-	request({ url, json: true }, (error, { body } = {}) => {
+	request({ url, json: true }, (error, response, body) => {
 		if (error) {
 			callback('Unable to connect to weather service', undefined);
 		} else if (body.error) {
